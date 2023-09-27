@@ -25,6 +25,71 @@ async function createCity(req, res) {
     }
 }
 
+/**
+ * GET : /cities
+ * req-body {}
+ */
+
+async function getCities(req, res) {
+    try {
+        const cities = await CityService.getCities();
+        SuccessResponse.data = cities;
+        return res
+                .status(StatusCodes.OK)
+                .json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res
+                .status(error.statusCode)
+                .json(ErrorResponse);
+    }
+}
+
+
+/**
+ * GET : /Cities/:id
+ * req-body {}
+ */
+async function getCity(req, res) {
+    try {
+        const City = await CityService.getCity(req.params.id);
+        SuccessResponse.data = City;
+        return res
+                .status(StatusCodes.OK)
+                .json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res
+                .status(error.statusCode)
+                .json(ErrorResponse);
+    }
+}
+
+
+/**
+ * DELETE : /cities/:id
+ * req-body {}
+ */
+
+async function destroyCity(req, res) {
+    try {
+        const cities = await CityService.destroyCity(req.params.id);
+        SuccessResponse.data = cities;
+        return res
+                .status(StatusCodes.OK)
+                .json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res
+                .status(error.statusCode)
+                .json(ErrorResponse);
+    }
+}
+
+
 module.exports = {
-    createCity
+    createCity,
+    getCities,
+    getCity,
+    destroyCity,
 }

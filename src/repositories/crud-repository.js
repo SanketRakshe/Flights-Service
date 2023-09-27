@@ -39,17 +39,6 @@ class CrudRepository {
         return response;
     }
 
-    /*
-    async update(data) {
-        const response = await this.model.update(data, {    //data -> {col: value, ...}
-            where : {
-                id : id
-            }
-        });
-        return response;
-    }
-    */
-
     async update(id, data) {
         const tableAttributes = Object.keys(this.model.rawAttributes);
         const reqAttributes = Object.keys(data);
