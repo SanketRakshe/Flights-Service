@@ -18,10 +18,12 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'CASCADE'
       });
       this.hasMany(models.Flight, {
+        // 1 Airport can have many Flights
         foreignKey: 'departureAirportId',
         onDelete: 'CASCADE'
       });
       this.hasMany(models.Flight, {
+        // 1 Airport can have many Flights
         foreignKey: 'arrivalAirportId',
         onDelete: 'CASCADE'
       });

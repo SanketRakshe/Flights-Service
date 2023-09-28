@@ -14,29 +14,32 @@ module.exports = {
         allowNull: false,
       },
       airplaneId: {
+        // Foreign Key
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'Airplanes',
-          key: 'id'
+          key: 'id'   // id column of Airports table/model
         },
         onDelete: 'CASCADE',
       },
       departureAirportId: {
+        // Foreign Key
         type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Airports',
-          key: 'code'
+          key: 'code'   // code column of Airports table/model
         },
         onDelete: 'CASCADE',
       },
       arrivalAirportId: {
+        // Foreign Key
         type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Airports',
-          key: 'code'
+          key: 'code'     // code column of Airports table/model
         },
         onDelete: 'CASCADE',
       },

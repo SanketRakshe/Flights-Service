@@ -12,18 +12,22 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.Airpane, {
+        // A flight will belong to an Airplane
         foreignKey: 'airplaneId'
       });
       this.belongsTo(models.Airport, {
+        // In flight-reposiorty, Airport is associated to Flight multiple times below. To identify the correct association, you must use the 'as' keyword to specify the alias of the association you want to include
         foreignKey: 'departureAirportId'
       });
       this.belongsTo(models.Airport, {
+        // In flight-reposiorty, Airport is associated to Flight multiple times above. To identify the correct association, you must use the 'as' keyword to specify the alias of the association you want to include.
         foreignKey: 'arrivalAirportId'
       });
     }
   }
   Flight.init({
     flightNumber: {
+      // In this project, The same flightNumber can be there for multiple routes, so kept it repeatable.
       type: DataTypes.STRING,
       allowNull: false
     },
