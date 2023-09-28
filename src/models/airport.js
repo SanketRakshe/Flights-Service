@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.City, {
+        // Airports belong to a City and Foreign Key is the cityId inside the airports table based on u say Airports belong to a City.
         foreignKey: 'cityId',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
