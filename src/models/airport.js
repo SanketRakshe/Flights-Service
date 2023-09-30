@@ -13,19 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.City, {
         // Airports belong to a City and Foreign Key is the cityId inside the airports table based on u say Airports belong to a City.
-        foreignKey: 'cityId',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
+        foreignKey: "cityId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       });
       this.hasMany(models.Flight, {
         // 1 Airport can have many Flights
-        foreignKey: 'departureAirportId',
-        onDelete: 'CASCADE'
+        foreignKey: "departureAirportId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       });
       this.hasMany(models.Flight, {
         // 1 Airport can have many Flights
-        foreignKey: 'arrivalAirportId',
-        onDelete: 'CASCADE'
+        foreignKey: "arrivalAirportId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       });
     }
   }
