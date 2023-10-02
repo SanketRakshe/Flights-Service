@@ -14,18 +14,19 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Airplane, {
         // A flight will belong to an Airplane
         foreignKey: "airplaneId",
+        as: 'airplaneDetail',
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       });
       this.belongsTo(models.Airport, {
         foreignKey: "departureAirportId",
-        as: "departureAirport", // In flight-reposiorty, Airport is associated to Flight multiple times below. To identify the correct association, you must use the 'as' keyword to specify the alias of the association you want to include.
+        as: 'departureAirport', // In flight-reposiorty, Airport is associated to Flight multiple times below. To identify the correct association, you must use the 'as' keyword to specify the alias of the association you want to include.
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       });
       this.belongsTo(models.Airport, {
         foreignKey: "arrivalAirportId",
-        as: "arrivalAirport", // In flight-reposiorty, Airport is associated to Flight multiple times above. To identify the correct association, you must use the 'as' keyword to specify the alias of the association you want to include.
+        as: 'arrivalAirport', // In flight-reposiorty, Airport is associated to Flight multiple times above. To identify the correct association, you must use the 'as' keyword to specify the alias of the association you want to include.
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       });
