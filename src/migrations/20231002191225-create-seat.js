@@ -30,9 +30,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      class: {
+      type: {
         type: Sequelize.STRING,
         allowNull: false,
+        values: [BUSINESS, ECONOMY, PREMIUM_ECONOMY, FIRST_CLASS],
+        defaultValue: ECONOMY,
       },
       createdAt: {
         allowNull: false,
